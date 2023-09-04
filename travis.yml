@@ -1,0 +1,16 @@
+language: node_js 
+
+node_js: 
+  - 16.13.e 
+
+install: 
+  - yarn 
+
+services : 
+  - docker 
+
+before install: 
+  - docker build -t nawaf83/youtube-stats -f Dockerfile.dev 
+
+script: 
+  - docker run nawaf83/youtube-stats npm run build 
